@@ -52,7 +52,7 @@ print("Configuring multiple MCP servers:\n")
 # Hint: Add both calculator and weather server configurations
 client = MultiServerMCPClient(
     {
-        ___: {  # Replace ___ with "calculator"
+        "calculator": {  # Replace ___ with "calculator"
             "command": "python",
             "args": ["/root/code/mcp_servers/calculator_server.py"],
             "transport": "stdio",
@@ -60,7 +60,7 @@ client = MultiServerMCPClient(
         "weather": {
             "command": "python",
             "args": ["/root/code/mcp_servers/weather_server.py"],
-            "transport": ___,  # Replace ___ with "stdio"
+            "transport": "stdio",  # Replace ___ with "stdio"
         }
     }
 )
@@ -72,13 +72,13 @@ async def run_multi_server_agent():
 
     # TODO 2: Get all tools from both servers
     # Hint: Use client.get_tools()
-    tools = await ___  # Replace ___ with client.get_tools()
+    tools = await client.get_tools()  # Replace ___ with client.get_tools()
 
     print(f"✅ Loaded {len(tools) if hasattr(tools, '__len__') else 'multiple'} tools from MCP servers")
 
     # TODO 3: Create react agent with all tools
     # Hint: Pass model and tools to create_agent
-    agent = create_agent(___, ___)  # Replace both ___ with model, tools
+    agent = create_agent(model, tools)  # Replace both ___ with model, tools
 
     print("\n" + "=" * 60)
     print("TESTING MULTI-SERVER ORCHESTRATION:")
