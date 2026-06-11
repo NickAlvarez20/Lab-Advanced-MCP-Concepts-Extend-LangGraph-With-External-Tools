@@ -62,7 +62,7 @@ except ImportError:
 
 # TODO 1: Initialize the MCP server
 # Hint: Pass server name to FastMCP with double quotes
-mcp = FastMCP("___")  # Replace ___ with Calculator
+mcp = FastMCP("Calculator")  # Replace ___ with Calculator
 
 # Create calculator tools using FastMCP decorators
 @mcp.tool()
@@ -75,7 +75,7 @@ def add(a: float, b: float) -> float:
 
 # TODO 2: Create the multiply tool
 # Hint: Use @mcp.tool() decorator
-___  # Replace ___ with @mcp.tool()
+@mcp.tool()  # Replace ___ with @mcp.tool()
 def multiply(a: float, b: float) -> float:
     """Multiply two numbers"""
     result = a * b
