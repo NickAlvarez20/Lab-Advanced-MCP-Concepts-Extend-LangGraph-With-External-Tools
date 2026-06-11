@@ -76,7 +76,7 @@ print("Building MCP-integrated agent:\n")
 # Hint: Configure calculator server with stdio transport
 client = MultiServerMCPClient(
     {
-        ___: {  # Replace ___ with "calculator"
+        "calculator": {  # Replace ___ with "calculator"
             "command": "python",
             # In production, use full path to your server
             "args": ["/root/code/task_1_mcp_basics.py"],
@@ -90,11 +90,11 @@ async def run_agent_with_mcp():
 
     # TODO 2: Get tools from MCP client
     # Hint: Call client.get_tools()
-    tools = await ___  # Replace ___ with client.get_tools()
+    tools = await client.get_tools()  # Replace ___ with client.get_tools()
 
     # TODO 3: Create react agent with tools
     # Hint: Use create_agent with model and tools
-    agent = ___(model, tools)  # Replace ___ with create_agent
+    agent = create_agent(model, tools)  # Replace ___ with create_agent
 
     print("✅ Agent created with MCP tools!\n")
     print("=" * 60)
